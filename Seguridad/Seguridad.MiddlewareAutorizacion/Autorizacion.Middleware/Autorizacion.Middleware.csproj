@@ -4,7 +4,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<!-- ★ Metadatos del paquete NuGet -->
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<PackageId>Autorizacion.Middleware.juandramvar</PackageId>
 		<Authors>Drojascode</Authors>
 		<Description>Middleware de autorización por claims para ASP.NET Core 8</Description>

@@ -1,6 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
-namespace Autorizacion.Abstracciones.DA
+namespace Abstracciones.DA
 {
     public interface IRepositorioDapper
     {

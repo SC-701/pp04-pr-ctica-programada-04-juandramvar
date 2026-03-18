@@ -1,6 +1,5 @@
 ﻿using Autorizacion.Abstracciones.DA;
 using Autorizacion.Abstracciones.Modelos;
-// Reemplazar la referencia de System.Data.SqlClient por Microsoft.Data.SqlClient
 using Microsoft.Data.SqlClient;
 using Dapper;
 
@@ -20,14 +19,28 @@ namespace Autorizacion.DA
         public async Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario)
         {
             string sql = @"[ObtenerPerfilesxUsuario]";
-            var resultado = await _sqlConnection.QueryAsync<Perfil>(sql, new { CorreoElectronico = usuario.CorreoElectronico, NombreUsuario = usuario.NombreUsuario });
+            var resultado = await _sqlConnection.QueryAsync<Perfil>(
+                sql,
+                new
+                {
+                    CorreoElectronico = usuario.CorreoElectronico,
+                    NombreUsuario = usuario.NombreUsuario
+                });
+
             return resultado;
         }
 
         public async Task<Usuario> ObtenerInformacionUsuario(Usuario usuario)
         {
             string sql = @"[ObtenerUsuario]";
-            var resultado = await _sqlConnection.QueryAsync<Usuario>(sql, new { CorreoElectronico = usuario.CorreoElectronico, NombreUsuario = usuario.NombreUsuario });
+            var resultado = await _sqlConnection.QueryAsync<Usuario>(
+                sql,
+                new
+                {
+                    CorreoElectronico = usuario.CorreoElectronico,
+                    NombreUsuario = usuario.NombreUsuario
+                });
+
             return resultado.FirstOrDefault();
         }
     }
