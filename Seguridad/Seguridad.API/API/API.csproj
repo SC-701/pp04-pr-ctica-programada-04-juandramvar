@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autorizacion.Abstracciones.juandramvar" Version="1.0.0" />
-    <PackageReference Include="Autorizacion.DA.juandramvar" Version="1.0.0" />
-    <PackageReference Include="Autorizacion.Flujo.juandramvar" Version="1.0.0" />
-    <PackageReference Include="Autorizacion.Middleware.juandramvar" Version="1.0.0" />
+    <PackageReference Include="Autorizacion.Abstracciones.juandramvar" Version="1.0.1" />
+    <PackageReference Include="Autorizacion.DA.juandramvar" Version="1.0.1" />
+    <PackageReference Include="Autorizacion.Flujo.juandramvar" Version="1.0.1" />
+    <PackageReference Include="Autorizacion.Middleware.juandramvar" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
