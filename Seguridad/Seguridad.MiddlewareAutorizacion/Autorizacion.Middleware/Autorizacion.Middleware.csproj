@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<!-- ★ Metadatos del paquete NuGet -->
+		<Version>1.0.0</Version>
+		<PackageId>Autorizacion.Middleware.juandramvar</PackageId>
+		<Authors>Drojascode</Authors>
+		<Description>Middleware de autorización por claims para ASP.NET Core 8</Description>
+		<RepositoryUrl>https://github.com/SC701</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Autorizacion.Abstracciones\Autorizacion.Abstracciones.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+</Project>
