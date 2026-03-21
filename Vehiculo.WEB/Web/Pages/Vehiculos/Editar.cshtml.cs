@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Web.Pages.Vehiculos
 {
-    [Authorize]
+    [Authorize(Roles = "2")]
     public class EditarModel : PageModel
     {
         private readonly IConfiguracion _configuracion;

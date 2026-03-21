@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web.Pages.Vehiculos
 {
-    [Authorize]
+    [Authorize(Roles = "1")]
     public class DetalleModel : PageModel
     {
         private readonly IConfiguracion _configuracion;

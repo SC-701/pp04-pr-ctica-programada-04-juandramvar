@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Web.Pages.Vehiculos
 {
-    [Authorize(Roles ="1")]
+    [Authorize(Roles = "1")]
     public class IndexModel : PageModel
     {
         public IList<VehiculoResponse> vehiculos { get; set; } = default!;
