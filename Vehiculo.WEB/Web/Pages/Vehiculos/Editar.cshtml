@@ -1,0 +1,93 @@
+﻿@page
+@model Web.Pages.Vehiculos.EditarModel
+@{
+}
+<h2>Editar Vehículo</h2>
+<div class="container">
+    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto ">
+        <form method="post">
+            <div class="form-group">
+                <label for="marcas">Marca</label>
+                <select asp-for="marcaseleccionada" class="form-select" asp-items="Model.marcas" id="marcas" onchange="fetchModelos()">
+                    <option value="">Seleccione una marca</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="modelos">Modelo</label>
+                <select asp-for="modeloseleccionado" class="form-select" asp-items="Model.modelos" id="modelos">
+                    <option value="">Seleccione un modelo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="vehiculoResponse.Placa"></label>
+                <input class="form-control" asp-for="vehiculoResponse.Placa" />
+                <span class="text-danger" asp-validation-for="vehiculoResponse.Placa"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="vehiculoResponse.Precio"></label>
+                <input class="form-control" asp-for="vehiculoResponse.Precio" />
+                <span class="text-danger" asp-validation-for="vehiculoResponse.Precio"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="vehiculoResponse.Anio"></label>
+                <input class="form-control" asp-for="vehiculoResponse.Anio" />
+                <span class="text-danger" asp-validation-for="vehiculoResponse.Anio"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="vehiculoResponse.Color"></label>
+                <input class="form-control" asp-for="vehiculoResponse.Color" />
+                <span class="text-danger" asp-validation-for="vehiculoResponse.Color"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="vehiculoResponse.CorreoPropietario"></label>
+                <input class="form-control" asp-for="vehiculoResponse.CorreoPropietario" />
+                <span class="text-danger" asp-validation-for="vehiculoResponse.CorreoPropietario"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="vehiculoResponse.TelefonoPropietario"></label>
+                <input class="form-control" asp-for="vehiculoResponse.TelefonoPropietario" />
+                <span class="text-danger" asp-validation-for="vehiculoResponse.TelefonoPropietario"></span>
+            </div>
+            <div class="text-danger" asp-validation-summary="All"></div>
+            <div class="form-group">
+                <a class="btn btn-primary" asp-page="./Index">Regresar</a>
+                <input type="submit" value="Editar" class="btn btn-success" />
+            </div>
+            <input type="hidden" asp-for="vehiculoResponse.Id">
+            <input type="hidden" asp-for="modeloseleccionado">
+            <input type="hidden" asp-for="marcaseleccionada">
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        async function fetchModelos() {
+            const marcaId = document.getElementById('marcas').value;
+            if (!marcaId) {
+                return;
+            }
+            try {
+                const response = await fetch(`?handler=ObtenerModelos&marcaId=${marcaId}`);
+                if (!response.ok) {
+                    throw new Error('Error obteniendo los datos');
+                }
+                const modelos = await response.json();
+                const modelosSelect = document.getElementById('modelos');
+                modelosSelect.innerHTML = '<option value="">Seleccione un modelo</option>';
+                modelos.forEach(modelo => {
+                    const option = document.createElement('option');
+                    option.value = modelo.id;
+                    option.text = modelo.nombre;
+                    modelosSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error obteniendo los datos:', error);
+            }
+        }
+
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
