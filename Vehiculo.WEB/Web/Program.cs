@@ -48,8 +48,6 @@ app.UseAuthentication();
 app.AutorizacionClaims();
 app.UseAuthorization();
 
-app.UseAuthorization();
-
 app.MapRazorPages();
 
 app.Run();
